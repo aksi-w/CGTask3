@@ -5,7 +5,7 @@ import ru.vsu.cs.cg.task3.popova_p_n.Matrix.Matrix3x3;
 
 import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 
-public class MathTest {
+public class MathTestMatrix3 {
     @Test
     void testAddition() {
         int[][] matrix1 = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};

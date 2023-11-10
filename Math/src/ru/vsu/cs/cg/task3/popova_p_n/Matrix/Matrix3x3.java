@@ -1,7 +1,5 @@
 package ru.vsu.cs.cg.task3.popova_p_n.Matrix;
 
-import org.junit.platform.commons.util.ToStringBuilder;
-
 public class Matrix3x3 {
 
     private int[][] matrix;
