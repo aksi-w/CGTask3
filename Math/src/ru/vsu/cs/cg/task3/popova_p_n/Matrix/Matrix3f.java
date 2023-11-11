@@ -26,7 +26,7 @@ public class Matrix3f {
         float[][] res = new float[3][3];
         for (int i = 0; i < 3; i++) {
             for (int j = 0; j < 3; j++) {
-                res[i][j] = matrix1.matrix[i][j] + matrix2.matrix[i][j];
+                res[i][j] = matrix1.matrix[i][j] - matrix2.matrix[i][j];
             }
         }
         return new Matrix3f(res);

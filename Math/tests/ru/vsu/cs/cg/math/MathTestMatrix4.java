@@ -1,7 +1,7 @@
 //package ru.vsu.cs.cg.math;
 //
 //import org.junit.jupiter.api.Test;
-//import ru.vsu.cs.cg.task3.popova_p_n.Matrix.Matrix4f;
+//import ru.vsu.cs.cg.task3.popova_p_n.Matrix.Matrix.Matrix4f;
 //
 //import static org.junit.jupiter.api.Assertions.assertArrayEquals;
 //
