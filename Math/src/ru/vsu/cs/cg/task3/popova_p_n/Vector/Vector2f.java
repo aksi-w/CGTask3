@@ -60,11 +60,12 @@ public class Vector2f {
     }
 
     public static float scalar(Vector2f vector1, Vector2f vector2, float u) {
-        float cosAngle = (float) Math.cos(u);
-        return lengthVector(vector1) * lengthVector(vector2) * cosAngle;
+        float uRadians = (float) Math.toRadians(u);
+        float cosU = (float) Math.cos(uRadians);
+        return lengthVector(vector1)*lengthVector(vector2)*cosU;
     }
-
-
-
+    public static float scalar(Vector2f vector1, Vector2f vector2) {
+        return lengthVector(vector1)*lengthVector(vector2);
+    }
 
 }
