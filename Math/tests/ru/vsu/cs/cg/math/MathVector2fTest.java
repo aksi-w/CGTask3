@@ -5,7 +5,7 @@ import ru.vsu.cs.cg.task3.popova_p_n.Vector.Vector2f;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class MathVector2fTest {
+public class MathVector2fTest {
 
     @Test
     void addition() {

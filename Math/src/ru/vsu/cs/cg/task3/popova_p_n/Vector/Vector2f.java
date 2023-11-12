@@ -18,15 +18,15 @@ public class Vector2f {
     }
 
     public static Vector2f addition(Vector2f vector1, Vector2f vector2) {
-        float resultX = vector1.getX() + vector2.getX();
-        float resultY = vector1.getY() + vector2.getY();
-        return new Vector2f(resultX, resultY);
+        float resX = vector1.getX() + vector2.getX();
+        float resY = vector1.getY() + vector2.getY();
+        return new Vector2f(resX, resY);
     }
 
     public static Vector2f subtraction(Vector2f vector1, Vector2f vector2) {
-        float resultX = vector1.getX() - vector2.getX();
-        float resultY = vector1.getY() - vector2.getY();
-        return new Vector2f(resultX, resultY);
+        float resX = vector1.getX() - vector2.getX();
+        float resY = vector1.getY() - vector2.getY();
+        return new Vector2f(resX, resY);
     }
 
     public static float lengthVector(Vector2f vector) {
@@ -45,16 +45,16 @@ public class Vector2f {
     }
 
     public static Vector2f multiplication(Vector2f vector, float a) {
-        float resultX = vector.getX() * a;
-        float resultY = vector.getY() * a;
-        return new Vector2f(resultX, resultY);
+        float resX = vector.getX() * a;
+        float resY = vector.getY() * a;
+        return new Vector2f(resX, resY);
     }
 
     public static Vector2f division(Vector2f vector, float a) {
         if (a != 0) {
-            float resultX = vector.getX() / a;
-            float resultY = vector.getY() / a;
-            return new Vector2f(resultX, resultY);
+            float resX = vector.getX() / a;
+            float resY = vector.getY() / a;
+            return new Vector2f(resX, resY);
         } else {
             return new Vector2f(0.0f, 0.0f);
         }
