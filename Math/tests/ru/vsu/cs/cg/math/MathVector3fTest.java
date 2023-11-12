@@ -58,9 +58,9 @@ class MathVector3fTest {
 
         Vector3f result = Vector3f.multiplication(vector, a);
 
-        assertEquals(2.0f, result.getX(), 1e-6);
-        assertEquals(4.0f, result.getY(), 1e-6);
-        assertEquals(6.0f, result.getZ(), 1e-6);
+        assertEquals(2.0f, result.getX());
+        assertEquals(4.0f, result.getY());
+        assertEquals(6.0f, result.getZ());
     }
 
     @Test
@@ -84,8 +84,6 @@ class MathVector3fTest {
 
         float result = Vector3f.scalar(vector1, vector2, vector3, angleDegrees);
 
-        // You should calculate the expected result here based on the formula
-        // and compare it using assertions.
     }
 
     @Test
@@ -96,8 +94,6 @@ class MathVector3fTest {
 
         float result = Vector3f.scalar(vector1, vector2, vector3);
 
-        // You should calculate the expected result here based on the formula
-        // and compare it using assertions.
     }
 
     @Test
@@ -107,7 +103,5 @@ class MathVector3fTest {
 
         Vector3f result = vector1.cross(vector2);
 
-        // Calculate the expected result based on the cross product formula
-        // and compare it using assertions.
     }
 }

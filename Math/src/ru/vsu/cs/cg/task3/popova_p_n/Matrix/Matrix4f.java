@@ -1,60 +1,53 @@
 package ru.vsu.cs.cg.task3.popova_p_n.Matrix;
 
-public class Matrix4f {
-    private int[][] matrix;
+import ru.vsu.cs.cg.task3.popova_p_n.Vector.Vector4f;
 
-    public int[][] getMatrix() {
+public class Matrix4f {
+    private float[][] matrix;
+
+    public float[][] getMatrix() {
         return matrix;
     }
 
-    public Matrix4f(int[][] matrix) {
+    public Matrix4f(float[][] matrix) {
         this.matrix = matrix;
     }
 
-    public static Matrix4f addition(Matrix4f[] matrix) {
-        int[][] res = new int[4][4];
-        for (Matrix4f m : matrix) {
-            for (int i = 0; i < 4; i++) {
-                for (int j = 0; j < 4; j++) {
-                    res[i][j] += m.matrix[i][j];
+    public static Matrix4f addition(Matrix4f matrix1, Matrix4f matrix2) {
+        float[][] res = new float[4][4];
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                res[i][j] = matrix1.matrix[i][j] + matrix2.matrix[i][j];
+            }
+        }
+        return new Matrix4f(res);
+    }
+
+    public static Matrix4f subtraction(Matrix4f matrix1, Matrix4f matrix2) {
+        float[][] res = new float[4][4];
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                res[i][j] = matrix1.matrix[i][j] - matrix2.matrix[i][j];
+            }
+        }
+        return new Matrix4f(res);
+    }
+    public static Matrix4f multiplication(Matrix4f matrix1, Matrix4f matrix2) {
+        float[][] res = new float[4][4];
+        for (int i = 0; i < 4; i++) {
+            for (int j = 0; j < 4; j++) {
+                for (int k = 0; k < 4; k++) {
+                    res[i][j] += matrix1.matrix[i][k] * matrix2.matrix[k][j];
                 }
             }
         }
         return new Matrix4f(res);
     }
 
-    public static Matrix4f subtraction(Matrix4f[] matrices) {
-        int[][] result = new int[4][4];
-        for (Matrix4f m : matrices) {
-            int[][] currentMatrix = m.getMatrix();
-            for (int i = 0; i < 4; i++) {
-                for (int j = 0; j < 4; j++) {
-                    result[i][j] -= currentMatrix[i][j];
-                }
-            }
-        }
-        return new Matrix4f(result);
-    }
 
-    public static Matrix4f multiplication(Matrix4f[] matrices) {
-        int[][] result = matrices[0].getMatrix();
-        for (int m = 1; m < matrices.length; m++) {
-            int[][] currentMatrix = matrices[m].getMatrix();
-            int[][] newResult = new int[4][4];
-            for (int i = 0; i < 4; i++) {
-                for (int j = 0; j < 4; j++) {
-                    for (int k = 0; k < 4; k++) {
-                        newResult[i][j] += result[i][k] * currentMatrix[k][j];
-                    }
-                }
-            }
-            result = newResult;
-        }
-        return new Matrix4f(result);
-    }
 
     public static Matrix4f transposition(Matrix4f matrix) {
-        int[][] res = new int[4][4];
+        float[][] res = new float[4][4];
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 res[i][j] = matrix.matrix[j][i];
@@ -64,12 +57,12 @@ public class Matrix4f {
     }
 
     public static Matrix4f zeroMatrix() {
-        int[][] zeroMatrix = new int[4][4];
+        float[][] zeroMatrix = new float[4][4];
         return new Matrix4f(zeroMatrix);
     }
 
     public static Matrix4f unitMatrix() {
-        int[][] res = new int[4][4];
+        float[][] res = new float[4][4];
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
                 if (i == j) {
@@ -81,4 +74,15 @@ public class Matrix4f {
         }
         return new Matrix4f(res);
     }
+    public static Vector4f multiplyOnVector(Matrix4f matrix, Vector4f vector) {
+        float[] res = new float[4];
+        for (int i = 0; i < 4; i++) {
+            res[i] = matrix.matrix[i][0] * vector.getX() +
+                    matrix.matrix[i][1] * vector.getY() +
+                    matrix.matrix[i][2] * vector.getZ()+
+                    matrix.matrix[i][3] * vector.getW();
+        }
+        return new Vector4f(res[0], res[1], res[2], res[3]);
+    }
+
 }

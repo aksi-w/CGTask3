@@ -1,5 +1,7 @@
 package ru.vsu.cs.cg.task3.popova_p_n.Matrix;
 
+import ru.vsu.cs.cg.task3.popova_p_n.Vector.Vector3f;
+
 public class Matrix3f {
 
     private float[][] matrix;
@@ -73,5 +75,17 @@ public class Matrix3f {
         }
         return new Matrix3f(res);
     }
+
+    public static Vector3f multiplyOnVector(Matrix3f matrix, Vector3f vector) {
+        float[] res = new float[3];
+        for (int i = 0; i < 3; i++) {
+            res[i] = matrix.matrix[i][0] * vector.getX() +
+                    matrix.matrix[i][1] * vector.getY() +
+                    matrix.matrix[i][2] * vector.getZ();
+        }
+        return new Vector3f(res[0], res[1], res[2]);
+    }
+
+
 }
 
