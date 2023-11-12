@@ -82,7 +82,7 @@ public class Vector3f {
 
     public Vector3f cross(Vector3f other) {
         float resX = this.y * other.z - this.z * other.y;
-        float resY = this.z * other.x - this.x * other.z;
+        float resY = this.x * other.z - this.z * other.x;
         float resZ = this.x * other.y - this.y * other.x;
 
         return new Vector3f(resX, resY, resZ);
