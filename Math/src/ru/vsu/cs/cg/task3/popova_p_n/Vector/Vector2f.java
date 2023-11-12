@@ -1,6 +1,6 @@
 package ru.vsu.cs.cg.task3.popova_p_n.Vector;
 
-public class Vector2f {
+public class Vector2f  {
 
     private float x, y;
 
@@ -64,8 +64,8 @@ public class Vector2f {
         return vector1.getX() * vector2.getX() + vector1.getY() * vector2.getY();
     }
 
-    public static float scalar(Vector2f vector1, Vector2f vector2, float angleDegrees) {
-        float angleRadians = (float) Math.toRadians(angleDegrees);
-        return lengthVector(vector1) * lengthVector(vector2) * (float) Math.cos(angleRadians);
+    public static float scalar(Vector2f vector1, Vector2f vector2, float u) {
+        float uU = (float) Math.toRadians(u);
+        return lengthVector(vector1) * lengthVector(vector2) * (float) Math.cos(uU);
     }
 }
