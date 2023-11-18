@@ -26,28 +26,28 @@ public class Vector4f {
         return w;
     }
 
-    public static Vector4f addition(Vector4f vector1, Vector4f vector2, Vector4f vector3, Vector4f vector4) {
-        float resX = vector1.getX() + vector2.getX() + vector3.getX() + vector4.getX();
-        float resY = vector1.getY() + vector2.getY() + vector3.getY() + vector4.getY();
-        float resZ = vector1.getZ() + vector2.getZ() + vector3.getZ() + vector4.getZ();
-        float resW = vector1.getW() + vector2.getW() + vector3.getW() + vector4.getW();
+    public static Vector4f addition(Vector4f vector1, Vector4f vector2) {
+        float resX = vector1.getX() + vector2.getX();
+        float resY = vector1.getY() + vector2.getY();
+        float resZ = vector1.getZ() + vector2.getZ();
+        float resW = vector1.getW() + vector2.getW();
         return new Vector4f(resX, resY, resZ, resW);
     }
 
-    public static Vector4f subtraction(Vector4f vector1, Vector4f vector2, Vector4f vector3, Vector4f vector4) {
-        float resX = vector1.getX() - vector2.getX() - vector3.getX() - vector4.getX();
-        float resY = vector1.getY() - vector2.getY() - vector3.getY() - vector4.getY();
-        float resZ = vector1.getZ() - vector2.getZ() - vector3.getZ() - vector4.getZ();
-        float resW = vector1.getW() - vector2.getW() - vector3.getW() - vector4.getW();
+    public static Vector4f subtraction(Vector4f vector1, Vector4f vector2) {
+        float resX = vector1.getX() - vector2.getX();
+        float resY = vector1.getY() - vector2.getY();
+        float resZ = vector1.getZ() - vector2.getZ();
+        float resW = vector1.getW() - vector2.getW();
         return new Vector4f(resX, resY, resZ, resW);
     }
 
-    public static float lengthVector3(Vector4f vector) {
+    public static float lengthVector4(Vector4f vector) {
         return (float) Math.sqrt(vector.getX() * vector.getX() + vector.getY() * vector.getY() + vector.getZ() * vector.getZ() + vector.getW() * vector.getW());
     }
 
     public static Vector4f normalize(Vector4f vector) {
-        float length = lengthVector3(vector);
+        float length = lengthVector4(vector);
         if (length != 0) {
             float normalizedX = vector.getX() / length;
             float normalizedY = vector.getY() / length;
@@ -80,13 +80,8 @@ public class Vector4f {
         }
     }
 
-    public static float scalar(Vector4f vector1, Vector4f vector2, Vector4f vector3, Vector4f vector4, float u) {
-        float uU = (float) Math.toRadians(u);
-        return lengthVector3(vector1) * lengthVector3(vector2) * lengthVector3(vector3) * lengthVector3(vector4) * (float) Math.cos(uU);
-    }
-
-    public static float scalar(Vector4f vector1, Vector4f vector2, Vector4f vector3, Vector4f vector4) {
-        return lengthVector3(vector1) * lengthVector3(vector2) * lengthVector3(vector3) * lengthVector3(vector4);
+    public static float scalar(Vector4f vector1, Vector4f vector2) {
+        return lengthVector4(vector1) * lengthVector4(vector2);
     }
 
 }

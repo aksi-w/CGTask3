@@ -22,17 +22,17 @@ public class Vector3f {
         return z;
     }
 
-    public static Vector3f addition(Vector3f vector1, Vector3f vector2, Vector3f vector3) {
-        float resX = vector1.getX() + vector2.getX() + vector3.getX();
-        float resY = vector1.getY() + vector2.getY() + vector3.getY();
-        float resZ = vector1.getZ() + vector2.getZ() + vector3.getZ();
+    public static Vector3f addition(Vector3f vector1, Vector3f vector2) {
+        float resX = vector1.getX() + vector2.getX();
+        float resY = vector1.getY() + vector2.getY();
+        float resZ = vector1.getZ() + vector2.getZ();
         return new Vector3f(resX, resY, resZ);
     }
 
-    public static Vector3f subtraction(Vector3f vector1, Vector3f vector2, Vector3f vector3) {
-        float resX = vector1.getX() - vector2.getX() - vector3.getX();
-        float resY = vector1.getY() - vector2.getY() - vector3.getY();
-        float resZ = vector1.getZ() - vector2.getZ() - vector3.getZ();
+    public static Vector3f subtraction(Vector3f vector1, Vector3f vector2) {
+        float resX = vector1.getX() - vector2.getX();
+        float resY = vector1.getY() - vector2.getY();
+        float resZ = vector1.getZ() - vector2.getZ();
         return new Vector3f(resX, resY, resZ);
     }
 
@@ -71,13 +71,8 @@ public class Vector3f {
         }
     }
 
-    public static float scalar(Vector3f vector1, Vector3f vector2, Vector3f vector3, float angleDegrees) {
-        float angleRadians = (float) Math.toRadians(angleDegrees);
-        return lengthVector3(vector1) * lengthVector3(vector2) * lengthVector3(vector3) * (float) Math.cos(angleRadians);
-    }
-
-    public static float scalar(Vector3f vector1, Vector3f vector2, Vector3f vector3) {
-        return lengthVector3(vector1) * lengthVector3(vector2) * lengthVector3(vector3);
+    public static float scalar(Vector3f vector1, Vector3f vector2) {
+        return lengthVector3(vector1) * lengthVector3(vector2);
     }
 
     public Vector3f cross(Vector3f other) {
