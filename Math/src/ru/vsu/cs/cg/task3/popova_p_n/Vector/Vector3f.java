@@ -22,6 +22,7 @@ public class Vector3f {
         return z;
     }
 
+
     public static Vector3f addition(Vector3f vector1, Vector3f vector2) {
         float resX = vector1.getX() + vector2.getX();
         float resY = vector1.getY() + vector2.getY();
@@ -48,7 +49,7 @@ public class Vector3f {
             float normalizedZ = vector.getZ() / length;
             return new Vector3f(normalizedX, normalizedY, normalizedZ);
         } else {
-            return new Vector3f(0.0f, 0.0f, 0.0f);
+            throw new IllegalArgumentException("Division by zero is undefined");
         }
     }
 
@@ -61,19 +62,20 @@ public class Vector3f {
 
     public static Vector3f division(Vector3f vector, float a) {
         if (a == 0) {
-            return new Vector3f(0.0f, 0.0f, 0.0f);
+            throw new IllegalArgumentException("Division by zero is undefined");
         } else {
             float resX = vector.getX() / a;
             float resY = vector.getY() / a;
             float resZ = vector.getZ() / a;
             return new Vector3f(resX, resY, resZ);
-
         }
     }
 
+
     public static float scalar(Vector3f vector1, Vector3f vector2) {
-        return lengthVector3(vector1) * lengthVector3(vector2);
+        return vector1.getX() * vector2.getX() + vector1.getY() * vector2.getY() + vector1.getZ() * vector2.getZ();
     }
+
 
     public Vector3f cross(Vector3f other) {
         float resX = this.y * other.z - this.z * other.y;
@@ -82,6 +84,4 @@ public class Vector3f {
 
         return new Vector3f(resX, resY, resZ);
     }
-
-
 }

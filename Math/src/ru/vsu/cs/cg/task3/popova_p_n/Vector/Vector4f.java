@@ -55,7 +55,7 @@ public class Vector4f {
             float normalizedW = vector.getW() / length;
             return new Vector4f(normalizedX, normalizedY, normalizedZ, normalizedW);
         } else {
-            return new Vector4f(0.0f, 0.0f, 0.0f, 0.0f);
+            throw new IllegalArgumentException("Division by zero is undefined");
         }
     }
 
@@ -63,13 +63,13 @@ public class Vector4f {
         float resX = vector.getX() * a;
         float resY = vector.getY() * a;
         float resZ = vector.getZ() * a;
-        float rezW = vector.getW() * a;
-        return new Vector4f(resX, resY, resZ, rezW);
+        float resW = vector.getW() * a;
+        return new Vector4f(resX, resY, resZ, resW);
     }
 
     public static Vector4f division(Vector4f vector, float a) {
         if (a == 0) {
-            return new Vector4f(0.0f, 0.0f, 0.0f, 0.0f);
+            throw new IllegalArgumentException("Division by zero is undefined");
         } else {
             float resX = vector.getX() / a;
             float resY = vector.getY() / a;
@@ -81,7 +81,8 @@ public class Vector4f {
     }
 
     public static float scalar(Vector4f vector1, Vector4f vector2) {
-        return lengthVector4(vector1) * lengthVector4(vector2);
+        return vector1.getX() * vector2.getX() + vector1.getY() * vector2.getY() +
+                vector1.getZ() * vector2.getZ() + vector1.getW() * vector2.getW();
     }
 
 }

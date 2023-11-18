@@ -40,7 +40,7 @@ public class Vector2f  {
             float normalizedY = vector.getY() / length;
             return new Vector2f(normalizedX, normalizedY);
         } else {
-            return new Vector2f(0.0f, 0.0f);
+            throw new IllegalArgumentException("Division by zero is undefined");
         }
     }
 
@@ -56,7 +56,7 @@ public class Vector2f  {
             float resY = vector.getY() / a;
             return new Vector2f(resX, resY);
         } else {
-            return new Vector2f(0.0f, 0.0f);
+            throw new IllegalArgumentException("Division by zero is undefined");
         }
     }
 
@@ -64,8 +64,4 @@ public class Vector2f  {
         return vector1.getX() * vector2.getX() + vector1.getY() * vector2.getY();
     }
 
-    public static float scalar(Vector2f vector1, Vector2f vector2, float u) {
-        float uU = (float) Math.toRadians(u);
-        return lengthVector(vector1) * lengthVector(vector2) * (float) Math.cos(uU);
-    }
 }
