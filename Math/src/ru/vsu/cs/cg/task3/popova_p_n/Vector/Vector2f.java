@@ -3,6 +3,7 @@ package ru.vsu.cs.cg.task3.popova_p_n.Vector;
 public class Vector2f  {
 
     private float x, y;
+    private final float eps = 1e-7f;
 
     public Vector2f(float x, float y) {
         this.x = x;
@@ -15,6 +16,10 @@ public class Vector2f  {
 
     public float getY() {
         return y;
+    }
+
+    public boolean equals(Vector3f other) {
+        return Math.abs(x - other.getX()) < eps && Math.abs(y - other.y) < eps && Math.abs(z - other.z) < eps;
     }
 
     public static Vector2f addition(Vector2f vector1, Vector2f vector2) {
