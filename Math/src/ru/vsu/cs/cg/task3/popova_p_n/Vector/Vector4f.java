@@ -27,10 +27,6 @@ public class Vector4f implements Vector<Vector4f>{
         return w;
     }
 
-    public boolean equals(Vector4f other) {
-        return Math.abs(x - other.x) < eps && Math.abs(y - other.y) < eps && Math.abs(z - other.z) < eps && Math.abs(w - other.w) < eps;
-    }
-
     @Override
     public  Vector4f addition(Vector4f vector1, Vector4f vector2) {
         float resX = vector1.getX() + vector2.getX();

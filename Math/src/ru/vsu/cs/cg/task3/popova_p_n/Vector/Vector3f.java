@@ -23,11 +23,6 @@ public class Vector3f implements Vector<Vector3f>{
         return z;
     }
 
-
-    public boolean equals(Vector3f other) {
-        return Math.abs(x - other.x) < eps && Math.abs(y - other.y) < eps && Math.abs(z - other.z) < eps;
-    }
-
     @Override
     public Vector3f addition(Vector3f vector1, Vector3f vector2) {
         float resX = vector1.getX() + vector2.getX();

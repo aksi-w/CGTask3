@@ -18,12 +18,9 @@ public class Vector2f implements Vector<Vector2f>{
         return y;
     }
 
-    public boolean equals(Vector2f other) {
-        return Math.abs(x - other.x) < eps && Math.abs(y - other.y)  < eps;
-    }
 
     @Override
-    public  Vector2f addition(Vector2f vector1, Vector2f vector2) {
+    public Vector2f addition(Vector2f vector1, Vector2f vector2) {
         float resX = vector1.getX() + vector2.getX();
         float resY = vector1.getY() + vector2.getY();
         return new Vector2f(resX, resY);
