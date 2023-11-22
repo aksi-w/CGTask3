@@ -2,7 +2,7 @@ package ru.vsu.cs.cg.task3.popova_p_n.Matrix;
 
 import ru.vsu.cs.cg.task3.popova_p_n.Vector.Vector4f;
 
-public class Matrix4f {
+public class Matrix4f implements Matrix<Matrix4f>{
     private float[][] matrix;
 
     public float[][] getMatrix() {
@@ -13,7 +13,8 @@ public class Matrix4f {
         this.matrix = matrix;
     }
 
-    public static Matrix4f addition(Matrix4f matrix1, Matrix4f matrix2) {
+    @Override
+    public Matrix4f addition(Matrix4f matrix1, Matrix4f matrix2) {
         float[][] res = new float[4][4];
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
@@ -23,7 +24,8 @@ public class Matrix4f {
         return new Matrix4f(res);
     }
 
-    public static Matrix4f subtraction(Matrix4f matrix1, Matrix4f matrix2) {
+    @Override
+    public Matrix4f subtraction(Matrix4f matrix1, Matrix4f matrix2) {
         float[][] res = new float[4][4];
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
@@ -32,7 +34,9 @@ public class Matrix4f {
         }
         return new Matrix4f(res);
     }
-    public static Matrix4f multiplication(Matrix4f matrix1, Matrix4f matrix2) {
+
+    @Override
+    public Matrix4f multiplication(Matrix4f matrix1, Matrix4f matrix2) {
         float[][] res = new float[4][4];
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
@@ -44,9 +48,8 @@ public class Matrix4f {
         return new Matrix4f(res);
     }
 
-
-
-    public static Matrix4f transposition(Matrix4f matrix) {
+    @Override
+    public Matrix4f transposition(Matrix4f matrix) {
         float[][] res = new float[4][4];
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {
@@ -56,12 +59,14 @@ public class Matrix4f {
         return new Matrix4f(res);
     }
 
-    public static Matrix4f zeroMatrix() {
+    @Override
+    public Matrix4f zeroMatrix() {
         float[][] zeroMatrix = new float[4][4];
         return new Matrix4f(zeroMatrix);
     }
 
-    public static Matrix4f unitMatrix() {
+    @Override
+    public Matrix4f unitMatrix() {
         float[][] res = new float[4][4];
         for (int i = 0; i < 4; i++) {
             for (int j = 0; j < 4; j++) {

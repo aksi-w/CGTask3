@@ -1,6 +1,6 @@
 package ru.vsu.cs.cg.task3.popova_p_n.Matrix;
 
-import ru.vsu.cs.cg.task3.popova_p_n.Vector.Vector3f;
+import ru.vsu.cs.cg.task3.popova_p_n.Vector.Vector;
 
 public interface Matrix<T> {
     public T addition(T matrix1, T matrix2);
@@ -9,6 +9,5 @@ public interface Matrix<T> {
     public T transposition(T matrix);
     public T zeroMatrix();
     public T unitMatrix();
-    public T multiplyOnVector(T matrix, T vector);
 
 }

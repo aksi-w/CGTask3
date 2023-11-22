@@ -81,9 +81,7 @@ public class Matrix3f implements Matrix<Matrix3f>{
         }
         return new Matrix3f(res);
     }
-
-    @Override
-    public  Vector3f multiplyOnVector(Matrix3f matrix, Vector3f vector) {
+    public static Vector3f multiplyOnVector(Matrix3f matrix, Vector3f vector) {
         float[] res = new float[3];
         for (int i = 0; i < 3; i++) {
             res[i] = matrix.matrix[i][0] * vector.getX() +
