@@ -19,50 +19,50 @@ public class Vector2f {
     }
 
 
-    public Vector2f addition(Vector2f vector1, Vector2f vector2) {
+    public static Vector2f addition(Vector2f vector1, Vector2f vector2) {
         float resX = vector1.getX() + vector2.getX();
         float resY = vector1.getY() + vector2.getY();
         return new Vector2f(resX, resY);
     }
 
-    public Vector2f subtraction(Vector2f vector1, Vector2f vector2) {
+    public static Vector2f subtraction(Vector2f vector1, Vector2f vector2) {
         float resX = vector1.getX() - vector2.getX();
         float resY = vector1.getY() - vector2.getY();
         return new Vector2f(resX, resY);
     }
 
-    public float lengthVector(Vector2f vector) {
+    public static float lengthVector(Vector2f vector) {
         return (float) Math.sqrt(vector.getX() * vector.getX() + vector.getY() * vector.getY());
     }
 
-    public Vector2f normalize(Vector2f vector) {
+    public static Vector2f normalize(Vector2f vector) {
         float length = lengthVector(vector);
         if (length > eps) {
             float normalizedX = vector.getX() / length;
             float normalizedY = vector.getY() / length;
             return new Vector2f(normalizedX, normalizedY);
         } else {
-            throw new IllegalArgumentException("Division by zero is undefined");
+            throw new IllegalArgumentException("Деление на 0!");
         }
     }
 
-    public Vector2f multiplication(Vector2f vector, float a) {
+    public static Vector2f multiplication(Vector2f vector, float a) {
         float resX = vector.getX() * a;
         float resY = vector.getY() * a;
         return new Vector2f(resX, resY);
     }
 
-    public Vector2f division(Vector2f vector, float a) {
+    public static Vector2f division(Vector2f vector, float a) {
         if (a > eps) {
             float resX = vector.getX() / a;
             float resY = vector.getY() / a;
             return new Vector2f(resX, resY);
         } else {
-            throw new IllegalArgumentException("Division by zero is undefined");
+            throw new IllegalArgumentException("Деление на 0!");
         }
     }
 
-    public  float scalar(Vector2f vector1, Vector2f vector2) {
+    public static float scalar(Vector2f vector1, Vector2f vector2) {
         return vector1.getX() * vector2.getX() + vector1.getY() * vector2.getY();
     }
 

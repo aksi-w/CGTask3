@@ -27,7 +27,7 @@ public class Vector4f{
         return w;
     }
 
-    public  Vector4f addition(Vector4f vector1, Vector4f vector2) {
+    public static Vector4f addition(Vector4f vector1, Vector4f vector2) {
         float resX = vector1.getX() + vector2.getX();
         float resY = vector1.getY() + vector2.getY();
         float resZ = vector1.getZ() + vector2.getZ();
@@ -35,7 +35,7 @@ public class Vector4f{
         return new Vector4f(resX, resY, resZ, resW);
     }
 
-    public  Vector4f subtraction(Vector4f vector1, Vector4f vector2) {
+    public static Vector4f subtraction(Vector4f vector1, Vector4f vector2) {
         float resX = vector1.getX() - vector2.getX();
         float resY = vector1.getY() - vector2.getY();
         float resZ = vector1.getZ() - vector2.getZ();
@@ -43,11 +43,11 @@ public class Vector4f{
         return new Vector4f(resX, resY, resZ, resW);
     }
 
-    public  float lengthVector(Vector4f vector) {
+    public static float lengthVector(Vector4f vector) {
         return (float) Math.sqrt(vector.getX() * vector.getX() + vector.getY() * vector.getY() + vector.getZ() * vector.getZ() + vector.getW() * vector.getW());
     }
 
-    public  Vector4f normalize(Vector4f vector) {
+    public static Vector4f normalize(Vector4f vector) {
         float length = lengthVector(vector);
         if (length > eps) {
             float normalizedX = vector.getX() / length;
@@ -56,11 +56,11 @@ public class Vector4f{
             float normalizedW = vector.getW() / length;
             return new Vector4f(normalizedX, normalizedY, normalizedZ, normalizedW);
         } else {
-            throw new IllegalArgumentException("Division by zero is undefined");
+            throw new IllegalArgumentException("Деление на 0!");
         }
     }
 
-    public  Vector4f multiplication(Vector4f vector, float a) {
+    public static Vector4f multiplication(Vector4f vector, float a) {
         float resX = vector.getX() * a;
         float resY = vector.getY() * a;
         float resZ = vector.getZ() * a;
@@ -68,9 +68,9 @@ public class Vector4f{
         return new Vector4f(resX, resY, resZ, resW);
     }
 
-    public  Vector4f division(Vector4f vector, float a) {
+    public static Vector4f division(Vector4f vector, float a) {
         if (a < eps) {
-            throw new IllegalArgumentException("Division by zero is undefined");
+            throw new IllegalArgumentException("Деление на 0!");
         } else {
             float resX = vector.getX() / a;
             float resY = vector.getY() / a;
@@ -81,7 +81,7 @@ public class Vector4f{
         }
     }
 
-    public  float scalar(Vector4f vector1, Vector4f vector2) {
+    public static float scalar(Vector4f vector1, Vector4f vector2) {
         return vector1.getX() * vector2.getX() + vector1.getY() * vector2.getY() +
                 vector1.getZ() * vector2.getZ() + vector1.getW() * vector2.getW();
     }
