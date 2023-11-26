@@ -1,6 +1,6 @@
 package ru.vsu.cs.cg.task3.popova_p_n.Vector;
 
-public class Vector4f implements Vector<Vector4f>{
+public class Vector4f{
     private float x, y, z, w;
     private static final float eps = 1e-7f;
 
@@ -27,7 +27,6 @@ public class Vector4f implements Vector<Vector4f>{
         return w;
     }
 
-    @Override
     public  Vector4f addition(Vector4f vector1, Vector4f vector2) {
         float resX = vector1.getX() + vector2.getX();
         float resY = vector1.getY() + vector2.getY();
@@ -36,7 +35,6 @@ public class Vector4f implements Vector<Vector4f>{
         return new Vector4f(resX, resY, resZ, resW);
     }
 
-    @Override
     public  Vector4f subtraction(Vector4f vector1, Vector4f vector2) {
         float resX = vector1.getX() - vector2.getX();
         float resY = vector1.getY() - vector2.getY();
@@ -45,12 +43,10 @@ public class Vector4f implements Vector<Vector4f>{
         return new Vector4f(resX, resY, resZ, resW);
     }
 
-    @Override
     public  float lengthVector(Vector4f vector) {
         return (float) Math.sqrt(vector.getX() * vector.getX() + vector.getY() * vector.getY() + vector.getZ() * vector.getZ() + vector.getW() * vector.getW());
     }
 
-    @Override
     public  Vector4f normalize(Vector4f vector) {
         float length = lengthVector(vector);
         if (length > eps) {
@@ -64,7 +60,6 @@ public class Vector4f implements Vector<Vector4f>{
         }
     }
 
-    @Override
     public  Vector4f multiplication(Vector4f vector, float a) {
         float resX = vector.getX() * a;
         float resY = vector.getY() * a;
@@ -73,7 +68,6 @@ public class Vector4f implements Vector<Vector4f>{
         return new Vector4f(resX, resY, resZ, resW);
     }
 
-    @Override
     public  Vector4f division(Vector4f vector, float a) {
         if (a < eps) {
             throw new IllegalArgumentException("Division by zero is undefined");
@@ -86,7 +80,7 @@ public class Vector4f implements Vector<Vector4f>{
 
         }
     }
-    @Override
+
     public  float scalar(Vector4f vector1, Vector4f vector2) {
         return vector1.getX() * vector2.getX() + vector1.getY() * vector2.getY() +
                 vector1.getZ() * vector2.getZ() + vector1.getW() * vector2.getW();

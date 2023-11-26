@@ -1,6 +1,6 @@
 package ru.vsu.cs.cg.task3.popova_p_n.Vector;
 
-public class Vector3f implements Vector<Vector3f>{
+public class Vector3f {
 
     private float x, y, z;
     private static final float eps = 1e-7f;
@@ -23,7 +23,6 @@ public class Vector3f implements Vector<Vector3f>{
         return z;
     }
 
-    @Override
     public Vector3f addition(Vector3f vector1, Vector3f vector2) {
         float resX = vector1.getX() + vector2.getX();
         float resY = vector1.getY() + vector2.getY();
@@ -31,7 +30,6 @@ public class Vector3f implements Vector<Vector3f>{
         return new Vector3f(resX, resY, resZ);
     }
 
-    @Override
     public Vector3f subtraction(Vector3f vector1, Vector3f vector2) {
         float resX = vector1.getX() - vector2.getX();
         float resY = vector1.getY() - vector2.getY();
@@ -39,12 +37,10 @@ public class Vector3f implements Vector<Vector3f>{
         return new Vector3f(resX, resY, resZ);
     }
 
-    @Override
     public float lengthVector(Vector3f vector) {
         return (float) Math.sqrt(vector.getX() * vector.getX() + vector.getY() * vector.getY() + vector.getZ() * vector.getZ());
     }
 
-    @Override
     public Vector3f normalize(Vector3f vector) {
         float length = lengthVector(vector);
         if (length > eps) {
@@ -57,7 +53,6 @@ public class Vector3f implements Vector<Vector3f>{
         }
     }
 
-    @Override
     public Vector3f multiplication(Vector3f vector, float a) {
         float resX = vector.getX() * a;
         float resY = vector.getY() * a;
@@ -65,7 +60,6 @@ public class Vector3f implements Vector<Vector3f>{
         return new Vector3f(resX, resY, resZ);
     }
 
-    @Override
     public Vector3f division(Vector3f vector, float a) {
         if (a < eps) {
             throw new IllegalArgumentException("Division by zero is undefined");
@@ -77,8 +71,7 @@ public class Vector3f implements Vector<Vector3f>{
         }
     }
 
-    @Override
-    public float scalar(Vector3f vector1, Vector3f vector2) {
+     public float scalar(Vector3f vector1, Vector3f vector2) {
         return vector1.getX() * vector2.getX() + vector1.getY() * vector2.getY() + vector1.getZ() * vector2.getZ();
     }
 
@@ -89,4 +82,5 @@ public class Vector3f implements Vector<Vector3f>{
 
         return new Vector3f(resX, resY, resZ);
     }
+
 }
