@@ -40,11 +40,12 @@ class MathVector4fTest {
     void normalize() {
         Vector4f vector = new Vector4f(1.0f, 2.0f, 3.0f, 4.0f);
         Vector4f normalized = Vector4f.normalize(vector);
-
-        assertEquals(0.182574, normalized.getX(), 1e-6);
-        assertEquals(0.365148, normalized.getY(), 1e-6);
-        assertEquals(0.547723, normalized.getZ(), 1e-6);
-        assertEquals(0.730297, normalized.getW(), 1e-6);
+        Vector4f expected = new Vector4f(0.182574f, 0.365148f, 0.547723f, 0.730297f);
+        assertTrue(expected.equals(normalized));
+//        assertEquals(0.182574, normalized.getX(), 1e-6);
+//        assertEquals(0.365148, normalized.getY(), 1e-6);
+//        assertEquals(0.547723, normalized.getZ(), 1e-6);
+//        assertEquals(0.730297, normalized.getW(), 1e-6);
     }
 
     @Test

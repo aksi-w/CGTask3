@@ -3,6 +3,7 @@ package ru.vsu.cs.cg.task3.popova_p_n.Matrix;
 import ru.vsu.cs.cg.task3.popova_p_n.Vector.Vector3f;
 
 public class Matrix3f {
+    private static final float eps = 1e-7f;
 
     private final float[][] matrix;
 
@@ -17,7 +18,7 @@ public class Matrix3f {
     public boolean equals(Matrix3f otherMatrix) {
         for (int i = 0; i < matrix.length; i++) {
             for (int j = 0; j < matrix[i].length; j++) {
-                if (matrix[i][j] != otherMatrix.matrix[i][j]) {
+                if (Math.abs(matrix[i][j] - otherMatrix.matrix[i][j]) < eps) {
                     return false;
                 }
             }
