@@ -6,30 +6,24 @@ import ru.vsu.cs.cg.task3.popova_p_n.Vector.Vector3f;
 import static org.junit.jupiter.api.Assertions.*;
 
 class MathVector3fTest {
+    private static final float eps = 1e-7f;
 
     @Test
     void addition() {
         Vector3f vector1 = new Vector3f(1.0f, 2.0f, 3.0f);
         Vector3f vector2 = new Vector3f(2.0f, 3.0f, 4.0f);
-
-
         Vector3f result = Vector3f.addition(vector1, vector2);
-
-        assertEquals(3.0f, result.getX());
-        assertEquals(5.0f, result.getY());
-        assertEquals(7.0f, result.getZ());
+        Vector3f expected = new Vector3f(3f, 5f, 7f);
+        assertTrue(expected.equals(result));
     }
 
     @Test
     void subtraction() {
         Vector3f vector1 = new Vector3f(1.0f, 2.0f, 3.0f);
         Vector3f vector2 = new Vector3f(2.0f, 3.0f, 4.0f);
-
         Vector3f result = Vector3f.subtraction(vector1, vector2);
-
-        assertEquals(-1.0f, result.getX());
-        assertEquals(-1.0f, result.getY());
-        assertEquals(-1.0f, result.getZ());
+        Vector3f expected = new Vector3f(-1f, -1f, -1f);
+        assertTrue(expected.equals(result));
     }
 
     @Test
@@ -54,12 +48,9 @@ class MathVector3fTest {
     void multiplication() {
         Vector3f vector = new Vector3f(1.0f, 2.0f, 3.0f);
         float a = 2.0f;
-
         Vector3f result = Vector3f.multiplication(vector, a);
-
-        assertEquals(2.0f, result.getX());
-        assertEquals(4.0f, result.getY());
-        assertEquals(6.0f, result.getZ());
+        Vector3f expected = new Vector3f(2f,4f,6f);
+        assertTrue(expected.equals(result));
     }
 
     @Test
@@ -68,10 +59,8 @@ class MathVector3fTest {
         float a = 2.0f;
 
         Vector3f result = Vector3f.division(vector, a);
-
-        assertEquals(2.0f, result.getX(), 1e-6);
-        assertEquals(3.0f, result.getY(), 1e-6);
-        assertEquals(4.0f, result.getZ(), 1e-6);
+        Vector3f expected = new Vector3f(2f, 3f, 4f);
+        assertTrue(expected.equals(result));
     }
 
     @Test
@@ -81,18 +70,18 @@ class MathVector3fTest {
 
 
         float result = Vector3f.scalar(vector1, vector2);
+        assertEquals(20, result);
 
     }
+
     @Test
     void cross() {
         Vector3f vector1 = new Vector3f(5.0f, 2.0f, 4.0f);
         Vector3f vector2 = new Vector3f(6.0f, 10.0f, 5.0f);
 
         Vector3f result = vector1.cross(vector2);
-
-        assertEquals(-30.0f, result.getX(), 1e-6);
-        assertEquals(-1f, result.getY(), 1e-6);
-        assertEquals(38.0f, result.getZ(), 1e-6);
+        Vector3f expected = new Vector3f(-30f, -1f, 38f);
+        assertTrue(expected.equals(result));
 
     }
 }

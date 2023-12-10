@@ -11,13 +11,10 @@ class MathVector4fTest {
         Vector4f vector1 = new Vector4f(1.0f, 2.0f, 3.0f, 4.0f);
         Vector4f vector2 = new Vector4f(2.0f, 3.0f, 4.0f, 5.0f);
 
-
         Vector4f result = Vector4f.addition(vector1, vector2);
+        Vector4f expected = new Vector4f(3f,5f,7f,9f);
 
-        assertEquals(3.0f, result.getX());
-        assertEquals(5.0f, result.getY());
-        assertEquals(7.0f, result.getZ());
-        assertEquals(9.0f, result.getW());
+        assertTrue(expected.equals(result));
     }
 
     @Test
@@ -26,11 +23,9 @@ class MathVector4fTest {
         Vector4f vector2 = new Vector4f(2.0f, 3.0f, 4.0f, 5.0f);
 
         Vector4f result = Vector4f.subtraction(vector1, vector2);
+        Vector4f expected = new Vector4f(-1f,-1f,-1f,-1f);
 
-        assertEquals(-1.0f, result.getX());
-        assertEquals(-1.0f, result.getY());
-        assertEquals(-1.0f, result.getZ());
-        assertEquals(-1.0f, result.getW());
+        assertTrue(expected.equals(result));
     }
 
     @Test
@@ -58,11 +53,9 @@ class MathVector4fTest {
         float a = 2.0f;
 
         Vector4f result = Vector4f.multiplication(vector, a);
+        Vector4f expected = new Vector4f(2f,4f,6f,8f);
 
-        assertEquals(2.0f, result.getX());
-        assertEquals(4.0f, result.getY());
-        assertEquals(6.0f, result.getZ());
-        assertEquals(8.0f, result.getW());
+        assertTrue(expected.equals(result));
     }
 
     @Test
@@ -71,11 +64,9 @@ class MathVector4fTest {
         float a = 2.0f;
 
         Vector4f result = Vector4f.division(vector, a);
+        Vector4f expected = new Vector4f(2f,3f,4f,5f);
 
-        assertEquals(2.0f, result.getX(), 1e-6);
-        assertEquals(3.0f, result.getY(), 1e-6);
-        assertEquals(4.0f, result.getZ(), 1e-6);
-        assertEquals(5.0f, result.getW(), 1e-6);
+        assertTrue(expected.equals(result));
     }
 
 
@@ -85,7 +76,7 @@ class MathVector4fTest {
         Vector4f vector2 = new Vector4f(2.0f, 3.0f, 4.0f, 5.0f);
 
         float result = Vector4f.scalar(vector1, vector2);
-
+        assertEquals(40, result);
     }
 
 }

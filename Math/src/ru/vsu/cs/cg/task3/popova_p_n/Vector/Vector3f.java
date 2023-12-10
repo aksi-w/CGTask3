@@ -2,7 +2,9 @@ package ru.vsu.cs.cg.task3.popova_p_n.Vector;
 
 public class Vector3f {
 
-    private float x, y, z;
+    private final float x;
+    private final float y;
+    private final float z;
     private static final float eps = 1e-7f;
 
     public Vector3f(float x, float y, float z) {
@@ -21,6 +23,10 @@ public class Vector3f {
 
     public float getZ() {
         return z;
+    }
+
+    public boolean equals(Vector3f other) {
+        return Math.abs(x - other.getX()) < eps && Math.abs(y - other.getY()) < eps && Math.abs(z - other.getZ()) < eps;
     }
 
     public static Vector3f addition(Vector3f vector1, Vector3f vector2) {

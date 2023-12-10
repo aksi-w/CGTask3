@@ -13,10 +13,11 @@ public class MathTestMatrix3 {
         float[][] matrixData2 = {{9, 8, 7}, {6, 5, 4}, {3, 2, 1}};
         Matrix3f matrix1 = new Matrix3f(matrixData1);
         Matrix3f matrix2 = new Matrix3f(matrixData2);
-        Matrix3f result = matrix1.addition(matrix1, matrix2);
-        float[][] expected = {{10, 10, 10}, {10, 10, 10}, {10, 10, 10}};
-        assertArrayEquals(expected, result.getMatrix());
+        Matrix3f result = Matrix3f.addition(matrix1, matrix2);
+        Matrix3f expected = new Matrix3f(new float[][]{{10, 10, 10}, {10, 10, 10}, {10, 10, 10}});
+        assertTrue(expected.equals(result));
     }
+
 
     @Test
     void testSubtraction() {
@@ -24,9 +25,9 @@ public class MathTestMatrix3 {
         float[][] matrixData2 = {{9, 8, 7}, {6, 5, 4}, {3, 2, 1}};
         Matrix3f matrix1 = new Matrix3f(matrixData1);
         Matrix3f matrix2 = new Matrix3f(matrixData2);
-        Matrix3f result = matrix1.subtraction(matrix1, matrix2);
-        float[][] expected = {{-8, -6, -4}, {-2, 0, 2}, {4, 6, 8}};
-        assertArrayEquals(expected, result.getMatrix());
+        Matrix3f result = Matrix3f.subtraction(matrix1, matrix2);
+        Matrix3f expected = new Matrix3f(new float[][]{{-8, -6, -4}, {-2, 0, 2}, {4, 6, 8}});
+        assertTrue(expected.equals(result));
     }
 
     @Test
@@ -35,32 +36,32 @@ public class MathTestMatrix3 {
         float[][] matrixData2 = {{9, 8, 7}, {6, 5, 4}, {3, 2, 1}};
         Matrix3f matrix1 = new Matrix3f(matrixData1);
         Matrix3f matrix2 = new Matrix3f(matrixData2);
-        Matrix3f result = matrix1.multiplication(matrix1, matrix2);
-        float[][] expected = {{30, 24, 18}, {84, 69, 54}, {138, 114, 90}};
-        assertArrayEquals(expected, result.getMatrix());
+        Matrix3f result = Matrix3f.multiplication(matrix1, matrix2);
+        Matrix3f expected = new Matrix3f(new float[][]{{30, 24, 18}, {84, 69, 54}, {138, 114, 90}});
+        assertTrue(expected.equals(result));
     }
 
     @Test
     void testTransposition() {
         float[][] matrixData = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
         Matrix3f matrix = new Matrix3f(matrixData);
-        Matrix3f result = matrix.transposition(matrix);
-        float[][] expected = {{1, 4, 7}, {2, 5, 8}, {3, 6, 9}};
-        assertArrayEquals(expected, result.getMatrix());
+        Matrix3f result = Matrix3f.transposition(matrix);
+        Matrix3f expected = new Matrix3f(new float[][]{{1, 4, 7}, {2, 5, 8}, {3, 6, 9}});
+        assertTrue(expected.equals(result));
     }
 
     @Test
     void testZeroMatrix() {
-        Matrix3f result = new Matrix3f(new float[3][3]).zeroMatrix();
-        float[][] expected = {{0, 0, 0}, {0, 0, 0}, {0, 0, 0}};
-        assertArrayEquals(expected, result.getMatrix());
+        Matrix3f result = Matrix3f.zeroMatrix();
+        Matrix3f expected = new Matrix3f(new float[][]{{0, 0, 0}, {0, 0, 0}, {0, 0, 0}});
+        assertTrue(expected.equals(result));
     }
 
     @Test
     void testUnitMatrix() {
-        Matrix3f result = new Matrix3f(new float[3][3]).unitMatrix();
-        float[][] expected = {{1, 0, 0}, {0, 1, 0}, {0, 0, 1}};
-        assertArrayEquals(expected, result.getMatrix());
+        Matrix3f result = Matrix3f.unitMatrix();
+        Matrix3f expected = new Matrix3f(new float[][]{{1, 0, 0}, {0, 1, 0}, {0, 0, 1}});
+        assertTrue(expected.equals(result));
     }
 
     @Test

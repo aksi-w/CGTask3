@@ -1,7 +1,10 @@
 package ru.vsu.cs.cg.task3.popova_p_n.Vector;
 
 public class Vector4f{
-    private float x, y, z, w;
+    private final float x;
+    private final float y;
+    private final float z;
+    private final float w;
     private static final float eps = 1e-7f;
 
     public Vector4f(float x, float y, float z, float w) {
@@ -25,6 +28,10 @@ public class Vector4f{
 
     public float getW() {
         return w;
+    }
+
+    public boolean equals(Vector4f other) {
+        return Math.abs(x - other.getX()) < eps && Math.abs(y - other.getY()) < eps && Math.abs(z - other.getZ()) < eps && Math.abs(w - other.getW()) < eps;
     }
 
     public static Vector4f addition(Vector4f vector1, Vector4f vector2) {
